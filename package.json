@@ -1,0 +1,41 @@
+{
+  "name": "sense",
+  "version": "1.0.0",
+  "description": "Sense is the repository for my home monitoring system. The idea is as follows:",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefanKarlsson/sense.git"
+  },
+  "keywords": [
+    "IoT",
+    "metrics",
+    "real-time",
+    "api",
+    "home",
+    "monitoring"
+  ],
+  "author": "stefankarlsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StefanKarlsson/sense/issues"
+  },
+  "homepage": "https://github.com/StefanKarlsson/sense#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "helmet": "^3.8.1",
+    "jsonwebtoken": "^7.4.3",
+    "morgan": "^1.8.2",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.8.0"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
