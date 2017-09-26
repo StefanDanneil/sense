@@ -1,6 +1,8 @@
 # Sense
 
-Sense is the repository for my home monitoring system. The idea is as follows:
+Sense is the repository for my home monitoring system.
+
+The idea is as follows:
 
 1 - You spin up microcontrollers with wifi access and the type of sensor you want
 
