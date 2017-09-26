@@ -4,7 +4,7 @@
 	const bodyParser = require('body-parser');
 	const morgan = require('morgan');
 	const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
-	const config = require('./config'); // get our config file
+	const config = require('./config/config'); // get our config file
 	const middleware = require('./middleware/middleware'); // get our config file
 
 	const app = express();

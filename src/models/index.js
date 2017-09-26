@@ -4,7 +4,7 @@ var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
 var env       = process.env.NODE_ENV || "development";
-var config    = require(path.join(__dirname, '..', 'config.js'));
+var config    = require(path.join(__dirname, '..', 'config/config.js'));
 
 var sequelize = new Sequelize('mysql://'+config.db.user+':'+config.db.password+'@'+config.db.host+'/'+config.db.db);
 

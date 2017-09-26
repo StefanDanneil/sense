@@ -1,5 +1,5 @@
 'use strict'
-const config = require('../config'); // get our config file
+const config = require('../config/config'); // get our config file
 const jwt = require('jsonwebtoken');
 
 const Middleware = function() {
