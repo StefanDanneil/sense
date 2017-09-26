@@ -1,7 +1,7 @@
 {
   "name": "sense",
   "version": "1.0.0",
-  "description": "Sense is the repository for my home monitoring system. The idea is as follows:",
+  "description": "Sense is the repository for my home monitoring system.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
