@@ -1,6 +1,5 @@
 "use strict";
 
-
 module.exports = function(sequelize, DataTypes) {
 
 	var Measure = sequelize.define("measure", {
