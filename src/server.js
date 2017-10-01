@@ -44,7 +44,7 @@
 	// =======================
 	// start the server ======
 	// =======================
-	models.sequelize.sync({force: true})
+	models.sequelize.sync()
 		.then(
 			() => {
 				require('./dbseed')();
