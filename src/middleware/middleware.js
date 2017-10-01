@@ -22,7 +22,15 @@ const Middleware = function() {
 		    	} else {
 		        // if everything is good, save to request for use in other routes
 		        req.decoded = decoded;
-		        req.userId = decoded.id;
+
+        		if (req.decoded.user) {
+        			req.userId = decoded.user.id;
+        		}
+
+        		if (req.decoded.device) {
+        			req.deviceId = decoded.device.id;
+        		}
+
 		        next();
 		    }
 		});

@@ -22,11 +22,13 @@ module.exports = function(){
 	})
 
 	models.measureType.create({
-		name: 'Temperature'
+		name: 'Temperature',
+		suffix: '°C'
 	});
 
 	models.measureType.create({
-		name: 'Humidity'
+		name: 'Humidity',
+		suffix: 'g/cm3'
 	});
 
 	models.measure.create({

@@ -9,8 +9,16 @@ module.exports = function(apiRoutes) {
 
 	apiRoutes.get('/users/:userId', function(req, res) {
 		models.user.findOne({
-			where: {id: req.params.userId}
-		}).then( user => res.json(user) );
+			where: {
+				id: req.params.userId
+			}
+		}).then( user => {
+			if (user && user.id === req.userId) {
+				res.json(user)
+			} else {
+				res.json(null)
+			}
+		});
 	});
 
 	apiRoutes.post('/users', function(req, res) {

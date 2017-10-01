@@ -10,7 +10,34 @@ module.exports = function(apiRoutes, app){
 			where: {userName : req.body.name}
 		}).then( user => {
 			if (!user) {
-				res.json({ success: false, message: 'Authentication failed. User not found.' });
+				//it might be a device trying to auth, try and find that
+				models.device.findOne({
+					where : {name : req.body.name}
+				}).then( device => {
+					if (!device) {
+						res.json({ success: false, message: 'Authentication failed. User or device not found.' });
+					} else {
+						// check if password matches
+						if (!device.validPassword(req.body.password)) {
+							res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+						} else {
+
+							// if user is found and password is right
+							// create a token
+							var token = jwt.sign({device: device.dataValues}, app.get('secret'), {
+								expiresIn: '2h'
+							});
+
+							// return the information including token as JSON
+							res.json({
+								success: true,
+								token: token
+							});
+						}
+					}
+				})
+
+
 			} else if (user) {
 
 				// check if password matches
@@ -20,7 +47,7 @@ module.exports = function(apiRoutes, app){
 
 					// if user is found and password is right
 					// create a token
-					var token = jwt.sign(user.dataValues, app.get('secret'), {
+					var token = jwt.sign({user: user.dataValues}, app.get('secret'), {
 						expiresIn: '2h'
 					});
 

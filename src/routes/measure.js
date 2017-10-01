@@ -14,7 +14,13 @@ module.exports = function(apiRoutes){
 	});
 
 	apiRoutes.post('/measures', function (req, res) {
-		res.send('soon you can save measures here');
+		if (req.deviceId) {
+			//this request is coming from a device. Let that device handle creation of measure
+			models.measure.create({
+				deviceId: req.deviceId,
+				value: req.body.value,
+				typeId: req.body.type
+			}).then( measure => res.json(measure));
+		}
 	});
-
 };
